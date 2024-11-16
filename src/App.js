@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { questions } from "./data";
 import Question from "./components/Question";
 import Results from "./components/Results";
-import Modal from "./components/Modal";  // Import the Modal component
+import Modal from "./components/Modal";
 
 const App = () => {
   const [name, setName] = useState("");
@@ -10,7 +10,7 @@ const App = () => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false);  // State to control modal visibility
+  const [showModal, setShowModal] = useState(false);
 
   const handleAnswerSelect = (questionId, answer) => {
     setSelectedAnswers((prev) => ({
