@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { questions } from "./data";
 import Question from "./components/Question";
 import Results from "./components/Results";
+import Modal from "./components/Modal";  // Import the Modal component
 
 const App = () => {
   const [name, setName] = useState("");
@@ -9,6 +10,7 @@ const App = () => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);  // State to control modal visibility
 
   const handleAnswerSelect = (questionId, answer) => {
     setSelectedAnswers((prev) => ({
@@ -19,7 +21,7 @@ const App = () => {
 
   const handleSubmit = () => {
     if (!name) {
-      alert("Please enter your name before submitting!");
+      setShowModal(true);  // Show the modal if name is not entered
       return;
     }
 
@@ -35,7 +37,7 @@ const App = () => {
 
     setTimeout(() => {
       setLoading(false);  // After delay, set loading to false
-    }, 2000); 
+    }, 2000);
   };
 
   const handleReset = () => {
@@ -43,6 +45,10 @@ const App = () => {
     setSelectedAnswers({});
     setSubmitted(false);
     setName("");
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);  // Close the modal
   };
 
   return (
@@ -91,6 +97,14 @@ const App = () => {
           questions={questions}
           onReset={handleReset}
           loading={loading}  // Pass loading state to Results
+        />
+      )}
+
+      {/* Modal for missing name */}
+      {showModal && (
+        <Modal
+          message="Please enter your name before submitting!"
+          onClose={handleCloseModal}
         />
       )}
 
