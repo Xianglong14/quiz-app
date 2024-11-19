@@ -3,7 +3,7 @@ export const questions = [
         id: 1,
         question: "17 rounded off to the nearest 10 is...",
         options: ["10", "20", "17"],
-        correct: "10",
+        correct: "20",
     },
     {
         id: 2,
@@ -27,7 +27,7 @@ export const questions = [
         id: 5,
         question: "64 rounded off to the nearest 10 is...",
         options: ["64", "70", "60"],
-        correct: "70",
+        correct: "60",
     },
     {
         id: 6,
@@ -51,7 +51,7 @@ export const questions = [
         id: 9,
         question: "94 rounded off to the nearest 10 is...",
         options: ["100", "94", "90"],
-        correct: "100",
+        correct: "90",
     },
     {
         id: 10,
@@ -69,6 +69,6 @@ export const questions = [
         id: 12,
         question: "999 rounded off to the nearest 10 is...",
         options: ["990", "1000", "909"],
-        correct: "990",
+        correct: "1000",
     },
 ];
